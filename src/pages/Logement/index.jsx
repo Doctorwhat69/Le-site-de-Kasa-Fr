@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Collapse from "../../components/Collapse";
 import Stars from "../../components/stars/index";
 import Host from "../../components/Host";
+import Tag from "../../components/Tags";
 
 const PageLogement = styled.div`
   margin-left: auto;
@@ -28,10 +29,12 @@ const TitreLogement = styled.h1`
   }
 `;
 
-const CollapseDiv = styled.div`
+const CollapseSection = styled.div`
   display: flex;
+  width: 100%;
   gap: 76px;
   color: black;
+  align-items: flex-start;
   @media (max-width: 1200px) {
     flex-direction: column;
     gap: 0px;
@@ -70,6 +73,16 @@ const HostStars = styled.div`
   }
 `;
 
+const UlCollapse = styled.ul`
+  padding: 0;
+  margin: 0;
+`;
+
+const LiCollapse = styled.li`
+  padding: 0;
+  margin: 0;
+`;
+
 function Logement() {
   const { idLogement } = useParams();
   const [logement, setLogement] = useState(null);
@@ -77,7 +90,7 @@ function Logement() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const foundLogement = data.find((logement) => logement.id === idLogement);
+    const foundLogement = data.find((l) => l.id === idLogement);
     if (!foundLogement) {
       navigate("/error");
     } else {
@@ -96,16 +109,25 @@ function Logement() {
         <TitleLocation>
           <TitreLogement>{logement.title}</TitreLogement>
           <LocationLogement>{logement.location}</LocationLogement>
+          <Tag tags={logement.tags} />
         </TitleLocation>
         <HostStars>
           <Host src={logement.host.picture} nom={logement.host.name} />
           <Stars rating={logement.rating} />
         </HostStars>
       </TopContent>
-      <CollapseDiv>
-        <Collapse title="Description"> {logement.description}</Collapse>
-        <Collapse title="Equipements"> {logement.equipments}</Collapse>
-      </CollapseDiv>
+      <CollapseSection>
+        <Collapse label="Description" heightDiv={150}>
+          {logement.description}
+        </Collapse>
+        <Collapse label="Equipements" heightDiv={150}>
+          <UlCollapse>
+            {logement.equipments.map((item, index) => (
+              <LiCollapse key={index}>{item}</LiCollapse>
+            ))}
+          </UlCollapse>
+        </Collapse>
+      </CollapseSection>
     </PageLogement>
   );
 }

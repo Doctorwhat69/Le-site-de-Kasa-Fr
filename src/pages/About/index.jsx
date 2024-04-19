@@ -7,39 +7,48 @@ const AboutPage = styled.div`
   margin: 0px;
 `;
 
+const AboutCollapse = styled.div`
+  @media (min-width: 760px) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+`;
+
 function About() {
   return (
     <AboutPage>
       <Banner title="" src={background_about} />
-      <Collapse title="Fiabilité">
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-        reprehenderit aliquid perferendis quas, neque consectetur non error,
-        tenetur doloribus dolor omnis quisquam facere eveniet commodi recusandae
-        minus quasi! Iure, est.
-      </Collapse>
-      <Collapse title="Respect">
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-        reprehenderit aliquid perferendis quas, neque consectetur non error,
-        tenetur doloribus dolor omnis quisquam facere eveniet commodi recusandae
-        minus quasi! Iure, est.
-      </Collapse>
-      <Collapse title="Service">
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-        reprehenderit aliquid perferendis quas, neque consectetur non error,
-        tenetur doloribus dolor omnis quisquam facere eveniet commodi recusandae
-        minus quasi! Iure, est.
-      </Collapse>
+      <AboutCollapse>
+        <Collapse label="Fiabilité" heightDiv={100}>
+          {" "}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          reprehenderit aliquid perferendis quas, neque consectetur non error,
+          tenetur doloribus dolor omnis quisquam facere eveniet commodi
+          recusandae minus quasi! Iure, est.
+        </Collapse>
+        <Collapse label="Respect" heightDiv={100}>
+          {" "}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          reprehenderit aliquid perferendis quas, neque consectetur non error,
+          tenetur doloribus dolor omnis quisquam facere eveniet commodi
+          recusandae minus quasi! Iure, est.
+        </Collapse>
+        <Collapse label="Service" heightDiv={100}>
+          {" "}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          reprehenderit aliquid perferendis quas, neque consectetur non error,
+          tenetur doloribus dolor omnis quisquam facere eveniet commodi
+          recusandae minus quasi! Iure, est.
+        </Collapse>
 
-      <Collapse title="Sécurité">
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-        reprehenderit aliquid perferendis quas, neque consectetur non error,
-        tenetur doloribus dolor omnis quisquam facere eveniet commodi recusandae
-        minus quasi! Iure, est.
-      </Collapse>
+        <Collapse label="Sécurité" heightDiv={100}>
+          {" "}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          reprehenderit aliquid perferendis quas, neque consectetur non error,
+          tenetur doloribus dolor omnis quisquam facere eveniet commodi
+          recusandae minus quasi! Iure, est.
+        </Collapse>
+      </AboutCollapse>
     </AboutPage>
   );
 }

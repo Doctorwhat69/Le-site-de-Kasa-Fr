@@ -30,6 +30,7 @@ const CardElement = styled.div`
   width: 100%;
   padding-top: 100%;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -110px 100px -28px inset;
   position: relative;
   margin: 0;
   @media (max-width: 768px) {

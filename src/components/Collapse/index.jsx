@@ -1,84 +1,97 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-// styles
-
-const CollapseComponent = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
+const CollapseWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: max-content;
+  margin-bottom: 30px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+`;
+
+const CollapseLabel = styled.h3`
+  color: white;
+`;
+
+const CollapseText = styled.div`
+  color: black;
+  width: 100%;
+  padding-top: 0px;
+  margin-top: 0;
+  margin-left: 10px;
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
+  transform: ${(props) =>
+    props.$isOpen ? "translateY(10%)" : "translateY(-100%)"};
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: -1;
+  overflow: hidden;
 `;
 
 const CollapseDiv = styled.div`
+  box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  color: white;
-  background-color: #ff6060;
   max-width: 100%;
-  height: 54px;
+  justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  z-index: 1;
-  position: relative;
-  @media (max-width: 768px) {
-    max-height: 30px;
-  }
+  background-color: #ff6060;
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  align-items: center;
+  z-index: 2;
 `;
 
-const CollapseContentBase = ({ IsOpen, children, ...rest }) => (
-  <div {...rest}>{children}</div>
-);
-
-const CollapseContent = styled(CollapseContentBase)`
-  background-color: #f6f6f6;
-  color: black;
-  border-radius: 0 0 5px 5px;
-  padding: ${(props) => (props.IsOpen ? "15px 10px 15px" : "0 10px")};
-  max-height: ${(props) => (props.IsOpen ? "max-content" : "0px")};
+const CollapseContent = styled.div`
+  display: flex;
+  padding: 0px;
+  border-radius: 5px;
+  align-items: top;
+  transition: height 0.3s ease;
   overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  transition: max-height 0.5s ease-out, padding 0.5s ease-in-out;
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
+  height: ${(props) => (props.$isOpen ? `${props.height}px` : "0px")};
+  z-index: 2;
 `;
 
 const CollapseIcone = styled.i`
+  color: white;
   font-size: 30px;
   cursor: pointer;
+  transition: transform 0.5s ease-out;
+  transform: ${(props) =>
+    props.$isOpen ? "rotate(0.5turn)" : "rotate(0turn)"};
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `;
 
-const CollapseTitle = styled.h3`
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-`;
+function Collapse({ label, children, heightDiv }) {
+  const [IsOpen, setOpen] = useState(false);
 
-function Collapse({ title, children }) {
-  const [IsOpen, setIsOpen] = useState(false);
-  const toggleCollapse = () => {
-    setIsOpen(!IsOpen);
+  const toggle = () => {
+    setOpen(!IsOpen);
   };
 
   return (
-    <CollapseComponent>
+    <CollapseWrapper>
       <CollapseDiv>
-        <CollapseTitle>{title}</CollapseTitle>
+        <CollapseLabel>{label}</CollapseLabel>
         <CollapseIcone
-          className={`fa-solid ${IsOpen ? "fa-angle-up" : "fa-angle-down"}`}
-          onClick={toggleCollapse}
-        ></CollapseIcone>
+          $isOpen={IsOpen}
+          className="fa-solid fa-angle-up"
+          aria-expanded={IsOpen}
+          onClick={toggle}
+        />
       </CollapseDiv>
-      <CollapseContent IsOpen={IsOpen}>{children}</CollapseContent>{" "}
-    </CollapseComponent>
+
+      <CollapseContent $isOpen={IsOpen} height={heightDiv}>
+        <CollapseText $isOpen={IsOpen}>{children}</CollapseText>
+      </CollapseContent>
+    </CollapseWrapper>
   );
 }
 

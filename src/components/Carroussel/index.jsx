@@ -26,30 +26,36 @@ const CarouselImg = styled.img`
   }
 `;
 
-const ArrowLeft = styled.i`
+const Arrow = styled.i`
   font-size: 50px;
   position: absolute;
+  cursor: pointer;
   top: 45%;
-  left: 1%;
   color: white;
+  display: ${(props) => (props.$show ? "block" : "none")};
   @media (max-width: 768px) {
     font-size: 25px;
   }
 `;
 
-const ArrowRight = styled.i`
-  font-size: 50px;
-  position: absolute;
-  top: 45%;
+const ArrowLeft = styled(Arrow)`
+  left: 1%;
+`;
+
+const ArrowRight = styled(Arrow)`
   right: 1%;
+`;
+
+const CountDiv = styled.div`
+  position: absolute;
   color: white;
-  @media (max-width: 768px) {
-    font-size: 25px;
-  }
+  left: 50%;
+  bottom: 3%;
 `;
 
 const Carrousel = ({ pictures }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const showArrows = pictures.length > 1;
 
   const nextImage = () => {
     setCurrentImage((nextIndex) =>
@@ -63,19 +69,24 @@ const Carrousel = ({ pictures }) => {
     );
   };
 
+  const compteur = `${currentImage + 1} / ${pictures.length}`;
+
   return (
     <CarrouselDiv>
       <ArrowLeft
         className="fa-solid fa-angle-left"
         onClick={prevImage}
+        $show={showArrows}
       ></ArrowLeft>
       <CarouselImg
         src={pictures[currentImage]}
         alt={`Carrousel ${currentImage}`}
       />
+      <CountDiv>{compteur}</CountDiv>
       <ArrowRight
         className="fa-solid fa-angle-right"
         onClick={nextImage}
+        $show={showArrows}
       ></ArrowRight>
     </CarrouselDiv>
   );
