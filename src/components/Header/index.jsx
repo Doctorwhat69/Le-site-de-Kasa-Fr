@@ -19,10 +19,6 @@ const LogoImage = styled.img`
 
 const NavHeader = styled.nav`
   text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 768px) {
   }
 `;
