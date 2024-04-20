@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../../assets/logo/LOGO.png";
 
@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   }
 `;
 const LogoImage = styled.img`
-  height: 50px; // Ajustez la taille du logo selon vos besoins
+  height: 50px;
 `;
 
 const NavHeader = styled.nav`
@@ -27,7 +27,7 @@ const NavHeader = styled.nav`
   }
 `;
 
-const LinkHeader = styled(Link)`
+const LinkHeader = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-weight: 600;
@@ -36,15 +36,32 @@ const LinkHeader = styled(Link)`
   @media (max-width: 768px) {
     font-size: 12px;
   }
+  &.activeLink {
+    text-decoration: underline;
+  }
 `;
+
+const activeStyle = {
+  textDecoration: "underline",
+};
 
 function Header() {
   return (
     <HeaderContainer>
       <LogoImage src={Logo} alt="Logo" />
       <NavHeader>
-        <LinkHeader to="/">Accueil</LinkHeader>
-        <LinkHeader to="/about">A propos</LinkHeader>
+        <LinkHeader
+          to="/"
+          className={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          Accueil
+        </LinkHeader>
+        <LinkHeader
+          to="/about"
+          className={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          A propos
+        </LinkHeader>
       </NavHeader>
     </HeaderContainer>
   );
