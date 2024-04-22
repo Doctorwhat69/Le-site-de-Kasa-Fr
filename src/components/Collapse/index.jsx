@@ -75,7 +75,6 @@ function Collapse({ label, children, heightDiv }) {
   const toggle = () => {
     setOpen(!IsOpen);
   };
-
   return (
     <CollapseWrapper>
       <CollapseDiv>

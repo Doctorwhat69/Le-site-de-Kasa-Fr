@@ -32,12 +32,9 @@ const LinkHeader = styled(NavLink)`
   @media (max-width: 768px) {
     font-size: 12px;
   }
-  &.activeLink {
-    text-decoration: underline;
-  }
 `;
 
-const activeStyle = {
+const activeLink = {
   textDecoration: "underline",
 };
 
@@ -48,13 +45,13 @@ function Header() {
       <NavHeader>
         <LinkHeader
           to="/"
-          className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          style={({ isActive }) => (isActive ? activeLink : null)}
         >
           Accueil
         </LinkHeader>
         <LinkHeader
           to="/about"
-          className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          style={({ isActive }) => (isActive ? activeLink : null)}
         >
           A propos
         </LinkHeader>
