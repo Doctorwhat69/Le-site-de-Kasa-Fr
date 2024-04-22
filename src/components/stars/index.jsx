@@ -22,7 +22,7 @@ const Star = styled(StarInside)`
 `;
 
 function Stars({ rating }) {
-  const filledStars = parseInt(rating);
+  const filledStars = rating;
 
   return (
     <StarDiv>
