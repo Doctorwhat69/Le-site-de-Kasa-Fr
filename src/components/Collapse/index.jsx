@@ -23,6 +23,7 @@ const CollapseText = styled.div`
   padding-top: 0px;
   margin-top: 0;
   margin-left: 10px;
+  margin-right: 10px;
   opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   transform: ${(props) =>
     props.$isOpen ? "translateY(10%)" : "translateY(-100%)"};
