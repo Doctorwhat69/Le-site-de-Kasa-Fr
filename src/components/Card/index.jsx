@@ -26,6 +26,7 @@ const CardContainer = styled.div`
 `;
 const CardElement = styled.div`
   background-image: url(${(props) => props.$cover});
+  background-size: cover;
   opacity: 0.9;
   width: 100%;
   padding-top: 100%;
