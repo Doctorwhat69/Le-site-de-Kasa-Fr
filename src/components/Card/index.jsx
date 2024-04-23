@@ -25,8 +25,8 @@ const CardContainer = styled.div`
   }
 `;
 const CardElement = styled.div`
-  background: #ff6060;
-  box-shadow: inset 0 -50% 30px -20px rgba(0, 0, 0, 0.2);
+  background-image: url(${(props) => props.$cover});
+  opacity: 0.9;
   width: 100%;
   padding-top: 100%;
   border-radius: 10px;
@@ -67,9 +67,9 @@ const CardLink = styled(Link)`
 function Card() {
   return (
     <CardContainer>
-      {data.slice(0, 6).map((logement) => (
+      {data.map((logement) => (
         <CardLink to={`/logement/${logement.id}`} key={logement.id}>
-          <CardElement key={logement.id}>
+          <CardElement $cover={logement.cover} key={logement.id}>
             <CardTitle>{logement.title}</CardTitle>
           </CardElement>
         </CardLink>
