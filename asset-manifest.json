@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/Le-site-de-Kasa-Fr/static/js/main.64dfdcf9.js",
-    "static/media/background_about.png": "/Le-site-de-Kasa-Fr/static/media/background_about.dc7a08e1faa2e14de0bd.png",
-    "static/media/background.png": "/Le-site-de-Kasa-Fr/static/media/background.1168be13650bb18b456e.png",
-    "index.html": "/Le-site-de-Kasa-Fr/index.html",
-    "main.64dfdcf9.js.map": "/Le-site-de-Kasa-Fr/static/js/main.64dfdcf9.js.map"
+    "main.js": "/Kasa/static/js/main.10276a04.js",
+    "static/media/background_about.png": "/Kasa/static/media/background_about.dc7a08e1faa2e14de0bd.png",
+    "static/media/background.png": "/Kasa/static/media/background.1168be13650bb18b456e.png",
+    "index.html": "/Kasa/index.html",
+    "main.10276a04.js.map": "/Kasa/static/js/main.10276a04.js.map"
   },
   "entrypoints": [
-    "static/js/main.64dfdcf9.js"
+    "static/js/main.10276a04.js"
   ]
 }
