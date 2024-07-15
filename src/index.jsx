@@ -56,9 +56,12 @@ ReactDOM.render(
           <Header />
           <ContentWrap>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/logement/:idLogement" element={<Logement />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/Le-site-de-Kasa-Fr/" element={<Home />} />
+              <Route
+                path="/Le-site-de-Kasa-Fr/logement/:idLogement"
+                element={<Logement />}
+              />
+              <Route path="/Le-site-de-Kasa-Fr/about" element={<About />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </ContentWrap>
