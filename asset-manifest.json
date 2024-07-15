@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/nom_de_repository/static/js/main.cfd797a8.js",
+    "static/media/background_about.png": "/nom_de_repository/static/media/background_about.dc7a08e1faa2e14de0bd.png",
+    "static/media/background.png": "/nom_de_repository/static/media/background.1168be13650bb18b456e.png",
+    "index.html": "/nom_de_repository/index.html",
+    "main.cfd797a8.js.map": "/nom_de_repository/static/js/main.cfd797a8.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.cfd797a8.js"
+  ]
+}
