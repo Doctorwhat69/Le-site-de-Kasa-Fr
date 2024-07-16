@@ -44,13 +44,13 @@ function Header() {
       <LogoImage src={Logo} alt="Logo" />
       <NavHeader>
         <LinkHeader
-          to="/"
+          to="/Le-site-de-Kasa-Fr/"
           style={({ isActive }) => (isActive ? activeLink : null)}
         >
           Accueil
         </LinkHeader>
         <LinkHeader
-          to="/about"
+          to="/Le-site-de-Kasa-Fr/about"
           style={({ isActive }) => (isActive ? activeLink : null)}
         >
           A propos

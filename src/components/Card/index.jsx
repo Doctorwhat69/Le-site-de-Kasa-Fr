@@ -69,7 +69,10 @@ function Card() {
   return (
     <CardContainer>
       {data.map((logement) => (
-        <CardLink to={`/logement/${logement.id}`} key={logement.id}>
+        <CardLink
+          to={`/Le-site-de-Kasa-Fr/logement/${logement.id}`}
+          key={logement.id}
+        >
           <CardElement $cover={logement.cover} key={logement.id}>
             <CardTitle>{logement.title}</CardTitle>
           </CardElement>
